@@ -11,6 +11,16 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-expand-lg mb-3 bg-body-tertiary">
+      <div class="container-fluid">
+        <%= link_to "BrianMDb", lists_path, class: "btn btn-secondary" %>
+        <div class="navbar-nav">
+          <%= link_to "Add list", new_list_path, class: "btn btn-primary" %>
+        </div>
+      </div>
+    </nav>
+    <div class="containter w-75 mx-auto">
+      <%= yield %>
+    </div>
   </body>
 </html>

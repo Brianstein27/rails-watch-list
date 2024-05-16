@@ -1,0 +1,11 @@
+<div>
+<% @lists.each do |list| %>
+  <div class="card m-4" style="width: 18rem;">
+    <!-- <img src="..." class="card-img-top" alt="..."> -->
+    <div class="card-body">
+      <%= link_to list.name, list_path(list)  %>
+    </div>
+  </div>
+  <div>
+  </div>
+<% end %>

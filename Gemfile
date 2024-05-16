@@ -65,6 +65,8 @@ end
 gem 'autoprefixer-rails'
 gem 'bootstrap', '~> 5.2'
 gem 'font-awesome-sass', '~> 6.1'
+gem 'json'
+gem 'open-uri'
 gem 'rails-controller-testing', group: [:test]
 gem 'rspec-rails', group: [:test]
 gem 'sassc-rails'

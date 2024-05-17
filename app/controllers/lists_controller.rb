@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  before_action :set_list, only: %i[show]
+  before_action :set_list, only: %i[destroy show]
   def index
     @lists = List.all
   end
@@ -20,6 +20,12 @@ class ListsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @list.delete
+
+    redirect_to list_path(@list), status: :see_other
   end
 
   private

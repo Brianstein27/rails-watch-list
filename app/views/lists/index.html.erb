@@ -43,7 +43,7 @@
 <div class="containter w-75 mx-auto">
   <div class="row row-cols-3 justify-content-between">
     <% @lists.each do |list| %>
-      <div class="card p-0 rounded m-2 mb-4 col" style="width: 300px;">
+      <div class="card p-0 rounded shadow-lg m-2 mb-4 col" style="width: 300px;">
         <img
           class="card-img rounded"
           src="<%= cl_image_path list.photo.key %>"
@@ -51,13 +51,19 @@
         />
         <div
           class="
-            card-img-overlay rounded text-white d-flex justify-content-evenly flex-column align-items-center
+            card-img-overlay rounded text-white d-flex justify-content-evenly flex-column
+            align-items-center
           "
         >
           <h2 class="card-title fw-bold"><%= list.name %></h2>
           <p class="card-text fs-6 shadow-lg bg-secondary py-2 px-4 fw-semibold"><%= list.movies.length %>
             Movies</p>
-          <%= link_to "See movies", list_path(list), class: "btn shadow-lg fw-bold  btn-primary rounded" %>
+          <div class="d-flex justify-content-between">
+            <%= link_to "See movies",
+            list_path(list),
+            class: "btn shadow-lg fw-bold  btn-primary mx-2 rounded" %>
+            <%= link_to "Delete list", list_path(list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn shadow-lg fw-bold  btn-danger text-light mx-2 rounded" %>
+          </div>
         </div>
       </div>
     <% end %>

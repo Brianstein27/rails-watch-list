@@ -46,7 +46,7 @@
       <div class="card p-0 rounded shadow-lg m-2 mb-4 col" style="width: 300px;">
         <img
           class="card-img rounded"
-          src="<%= cl_image_path list.photo.key %>"
+          src="<%= cl_image_path list.photo.key if list.photo.key %>"
           alt="a snow-capped mountain range"
         />
         <div

@@ -72,3 +72,4 @@ gem 'rails-controller-testing', group: [:test]
 gem 'rspec-rails', group: [:test]
 gem 'sassc-rails'
 gem 'simple_form'
+gem "cloudinary"

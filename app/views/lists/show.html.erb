@@ -1,26 +1,57 @@
-<h1><%= @list.name %></h1>
-<div class ="row row-cols-5 justify-content-between">
+
+<div
+  class="d-flex mb-4"
+  lc-helper="background"
+  style="background:url(https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D) center / cover no-repeat; height: 500px; background-color:#444; background-blend-mode: overlay;"
+>
+  <div class="align-self-center text-center text-light col-md-8 offset-md-2">
+    <div class="lc-block mb-4">
+      <div editable="rich">
+        <%= link_to @list.name,
+        lists_path,
+        class: "display-1 text-decoration-none text-light fw-bolder" %>
+      </div>
+    </div>
+        <%= link_to "Home",
+        lists_path,
+        class: "btn btn-secondary text-decoration-none text-light fw-bolder" %>
+      </div>
+  </div>
+</div>
+    <div class="containter w-75 mx-auto">
+<div class ="row row-cols-3 justify-content-evenly">
 <% @bookmarks.each do |bookmark| %>
-  <div class="card col" style="width: 18rem;">
-    <img src="<%= bookmark.movie.poster_url %>" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">
+<div class="card p-0 w-100 h-100 m-4" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="<%= bookmark.movie.poster_url %>" class="img-fluid w-full rounded-start" alt="Movie Poster">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body h-100 d-flex flex-column justify-content-between">
+        <h5 class="card-title fw-bold">
         <%= bookmark.movie.title %>
       </h5>
-      <p class="card-text"><span class="fw-bold">Rating: </span><%= bookmark.movie.rating %></p>
-      <p class="card-text"><%= bookmark.movie.overview %></p>
-      <div class="flex">
+        <p class="card-text"><%= bookmark.movie.overview %></p>
+        <div class="d-flex  justify-content-between">
         <p class="card-text"><span class="fw-bold">Comment: </span><%= bookmark.comment %></p>
+        <div>
        <%= link_to "Delete", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger text-light" %>
+        </div>
+        </div>
       </div>
     </div>
   </div>
+</div>
 <% end %>
 </div>
-
+<div class="d-flex justify-content-evenly">
+<div class="align-self-center my-4 w-50 card p-4 rounded">
 <h2>Add a movie</h2>
 <%= simple_form_for [ @list, @bookmark ] do |f| %>
   <%= f.association :movie %>
   <%= f.input :comment %>
   <%= f.submit %>
 <% end %>
+    </div>
+    </div>
+    </div>

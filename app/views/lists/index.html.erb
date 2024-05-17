@@ -1,24 +1,70 @@
-<div class="row row-cols-3 justify-content-between">
-  <% @lists.each do |list| %>
-    <div class="card p-0 rounded m-2 mb-4 col" style="width: 300px;">
-      <img
-        class="card-img rounded"
-        src="https://assets.codepen.io/6093409/mountains-3.jpg"
-        alt="a snow-capped mountain range"
-      />
-      <div
-        class="
-          card-img-overlay rounded text-white d-flex flex-column align-items-center
-        "
-      >
-        <h2 class="card-title"><%= list.name %></h2>
-        <p class="card-text"><%= list.movies.length %>
-          Movies</p>
-        <%= link_to "See movies", list_path(list), class: "btn btn-primary rounded" %>
+<div
+  class="d-flex mb-4"
+  lc-helper="background"
+  style="background:url(https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D) center / cover no-repeat; height: 500px; background-color:#444; background-blend-mode: overlay;"
+>
+  <div class="align-self-center text-center text-light col-md-8 offset-md-2">
+    <div class="lc-block mb-4">
+      <div editable="rich">
+        <%= link_to "Welcome to BriMDb",
+        lists_path,
+        class: "display-1 text-decoration-none text-light fw-bolder" %>
       </div>
     </div>
-  <% end %>
+
+    <div class="lc-block">
+      <div editable="rich">
+      </div>
+    </div>
+
+    <div class="lc-block">
+      <svg
+        width="4em"
+        height="4em"
+        viewBox="0 0 16 16"
+        class="text-light"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+        lc-helper="svg-icon"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+        ></path>
+        <path
+          fill-rule="evenodd"
+          d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z"
+        ></path>
+      </svg>
+
+    </div>
+  </div>
 </div>
-<div class="mx-auto row justify-content-center mb-4">
-  <%= link_to "Add list", new_list_path, class: "align-self-center btn btn-primary btn-lg w-25 btn-rounded" %>
+<div class="containter w-75 mx-auto">
+  <div class="row row-cols-3 justify-content-between">
+    <% @lists.each do |list| %>
+      <div class="card p-0 rounded m-2 mb-4 col" style="width: 300px;">
+        <img
+          class="card-img rounded"
+          src="https://assets.codepen.io/6093409/mountains-3.jpg"
+          alt="a snow-capped mountain range"
+        />
+        <div
+          class="
+            card-img-overlay rounded text-white d-flex flex-column align-items-center
+          "
+        >
+          <h2 class="card-title"><%= list.name %></h2>
+          <p class="card-text"><%= list.movies.length %>
+            Movies</p>
+          <%= link_to "See movies", list_path(list), class: "btn btn-primary rounded" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="mx-auto row justify-content-center mb-4">
+    <%= link_to "Add list",
+    new_list_path,
+    class: "align-self-center btn btn-primary btn-lg w-25 btn-rounded" %>
+  </div>
 </div>

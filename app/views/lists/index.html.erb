@@ -1,11 +1,24 @@
-<div>
-<% @lists.each do |list| %>
-  <div class="card m-4" style="width: 18rem;">
-    <!-- <img src="..." class="card-img-top" alt="..."> -->
-    <div class="card-body">
-      <%= link_to list.name, list_path(list)  %>
+<div class="row row-cols-3 justify-content-between">
+  <% @lists.each do |list| %>
+    <div class="card p-0 rounded m-2 mb-4 col" style="width: 300px;">
+      <img
+        class="card-img rounded"
+        src="https://assets.codepen.io/6093409/mountains-3.jpg"
+        alt="a snow-capped mountain range"
+      />
+      <div
+        class="
+          card-img-overlay rounded text-white d-flex flex-column align-items-center
+        "
+      >
+        <h2 class="card-title"><%= list.name %></h2>
+        <p class="card-text"><%= list.movies.length %>
+          Movies</p>
+        <%= link_to "See movies", list_path(list), class: "btn btn-primary rounded" %>
+      </div>
     </div>
-  </div>
-  <div>
-  </div>
-<% end %>
+  <% end %>
+</div>
+<div class="mx-auto row justify-content-center mb-4">
+  <%= link_to "Add list", new_list_path, class: "align-self-center btn btn-primary btn-lg w-25 btn-rounded" %>
+</div>

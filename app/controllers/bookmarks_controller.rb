@@ -13,7 +13,7 @@ class BookmarksController < ApplicationController
     else
       @list = @bookmark.list
       @bookmarks = Bookmark.where(list: @list)
-      render :new, status: :unprocessable_entity
+      render 'lists/show', status: :unprocessable_entity
     end
   end
 

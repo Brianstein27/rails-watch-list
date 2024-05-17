@@ -1,7 +1,7 @@
 <h1><%= @list.name %></h1>
-<div class ="d-flex flex-row b-4">
+<div class ="row row-cols-5 justify-content-between">
 <% @bookmarks.each do |bookmark| %>
-  <div class="card m-4" style="width: 18rem;">
+  <div class="card col" style="width: 18rem;">
     <img src="<%= bookmark.movie.poster_url %>" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">
@@ -11,16 +11,12 @@
       <p class="card-text"><%= bookmark.movie.overview %></p>
       <div class="flex">
         <p class="card-text"><span class="fw-bold">Comment: </span><%= bookmark.comment %></p>
-        <%= link_to "Delete", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger text-light" %>
+       <%= link_to "Delete", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger text-light" %>
       </div>
     </div>
   </div>
 <% end %>
 </div>
-
-<%= link_to "Add a movie",
-new_list_bookmark_path(@list),
-class: "btn btn-success text-light" %>
 
 <h2>Add a movie</h2>
 <%= simple_form_for [ @list, @bookmark ] do |f| %>

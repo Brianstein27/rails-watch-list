@@ -46,18 +46,18 @@
       <div class="card p-0 rounded m-2 mb-4 col" style="width: 300px;">
         <img
           class="card-img rounded"
-          src="https://assets.codepen.io/6093409/mountains-3.jpg"
+          src="<%= cl_image_path list.photo.key %>"
           alt="a snow-capped mountain range"
         />
         <div
           class="
-            card-img-overlay rounded text-white d-flex flex-column align-items-center
+            card-img-overlay rounded text-white d-flex justify-content-evenly flex-column align-items-center
           "
         >
-          <h2 class="card-title"><%= list.name %></h2>
-          <p class="card-text"><%= list.movies.length %>
+          <h2 class="card-title fw-bold"><%= list.name %></h2>
+          <p class="card-text fs-6 shadow-lg bg-secondary py-2 px-4 fw-semibold"><%= list.movies.length %>
             Movies</p>
-          <%= link_to "See movies", list_path(list), class: "btn btn-primary rounded" %>
+          <%= link_to "See movies", list_path(list), class: "btn shadow-lg fw-bold  btn-primary rounded" %>
         </div>
       </div>
     <% end %>

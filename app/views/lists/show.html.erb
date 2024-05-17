@@ -23,13 +23,14 @@
 <div class="card p-0 w-100 h-100 m-4" style="max-width: 540px;">
   <div class="row g-0">
     <div class="col-md-4">
-      <img src="<%= bookmark.movie.poster_url %>" class="img-fluid w-full rounded-start" alt="Movie Poster">
+      <img src="<%= bookmark.movie.poster_url %>" class="img-fluid h-100 w-full rounded-start" alt="Movie Poster">
     </div>
     <div class="col-md-8">
       <div class="card-body h-100 d-flex flex-column justify-content-between">
         <h5 class="card-title fw-bold">
         <%= bookmark.movie.title %>
       </h5>
+        <p class="card-text"><span class="fw-bold">Rating: </span><%= bookmark.movie.rating.round(1) %></p>
         <p class="card-text"><%= bookmark.movie.overview %></p>
         <div class="d-flex  justify-content-between">
         <p class="card-text"><span class="fw-bold">Comment: </span><%= bookmark.comment %></p>

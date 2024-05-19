@@ -68,9 +68,20 @@
       </div>
     <% end %>
   </div>
-  <div class="mx-auto row justify-content-center mb-4">
-    <%= link_to "Add list",
-    new_list_path,
-    class: "align-self-center btn btn-primary btn-lg w-25 btn-rounded" %>
+</div>
+<div data-controller="toggle">
+  <div class="mx-auto row justify-content-center my-4">
+    <div data-action="click->toggle#fire" class="align-self-center btn btn-primary shadow-lg btn-lg w-25 btn-rounded">Add a list</div>
   </div>
+<div class="container d-flex justify-content-center">
+  <div data-toggle-target="togglableElement" class="card p-4 m-4 shadow-lg d-none">
+<%= simple_form_for @list do |f| %>
+  <%= f.input :name %>
+  <%= f.input :photo, as: :file %>
+  <div class="btn btn-primary">
+  <%= f.button :submit, class: "text-light fw-bold" %>
+  </div>
+  </div>
+<% end %>
+</div>
 </div>

@@ -2,15 +2,12 @@ class ListsController < ApplicationController
   before_action :set_list, only: %i[destroy show]
   def index
     @lists = List.all
+    @list = List.new
   end
 
   def show
     @bookmarks = Bookmark.where(list: @list)
     @bookmark = Bookmark.new
-  end
-
-  def new
-    @list = List.new
   end
 
   def create
